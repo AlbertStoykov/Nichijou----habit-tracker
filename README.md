@@ -1,4 +1,4 @@
-# Vital---habit-tracker
+# Nichijou 日常 ---habit-tracker
 Futureproof LAP 2 Portfolio Week Project
 
 
