@@ -1,10 +1,10 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const booksController = require('../controllers/books')
+const habitsController = require("../controllers/habits");
 
-router.get('/', booksController.index)
-router.get('/:id', booksController.show)
-router.post('/', booksController.create)
-router.delete('/:id', booksController.destroy) //adding the delete posts
+router.get("/", habitsController.index);
+router.get("/:id", habitsController.show);
+router.post("/", habitsController.create);
+router.delete("/:id", habitsController.destroy); //adding the delete posts
 
 module.exports = router;

@@ -1,6 +1,6 @@
 const db = require("../dbConfig/init");
 
-const Author = require("./Habit");
+const User = require("./User");
 
 module.exports = class Habit {
   constructor(data, habit) {
@@ -12,11 +12,11 @@ module.exports = class Habit {
   static get all() {
     return new Promise(async (resolve, reject) => {
       try {
-        let bookData = await db.query(`SELECT * FROM books;`); //backtip
-        let books = bookData.rows.map((b) => new Book(b));
-        resolve(books);
+        let habitData = await db.query(`SELECT * FROM habits;`); //backtip
+        let habits = habitData.rows.map((b) => new Habit(b));
+        resolve(habits);
       } catch (err) {
-        reject("Book not found");
+        reject("Habit not found");
       }
     });
   }
@@ -24,35 +24,36 @@ module.exports = class Habit {
   static findById(id) {
     return new Promise(async (resolve, reject) => {
       try {
-        let bookData = await db.query(
+        let habitData = await db.query(
+          // ????????????????????????
           `SELECT books.*, authors.name as author
                                                     FROM books 
                                                     JOIN authors ON books.author_id = authors.id
                                                     WHERE books.id = $1;`,
           [id]
         ); //SQL query
-        let book = new Book(bookData.rows[0]);
-        resolve(book);
+        let habit = new Habit(habitData.rows[0]);
+        resolve(habit);
       } catch (err) {
-        reject("Book not found");
+        reject("Habit not found");
       }
     });
   }
 
-  static async create(bookData) {
+  static async create(habitData) {
     return new Promise(async (resolve, reject) => {
       try {
-        const { title, yearOfPublication, abstract, authorName } = bookData;
-        let author = await Author.findOrCreateByName(authorName);
+        const { habit_name, habit_category } = habitData;
+        let user = await User.findOrCreateByName(habit_name);
         let result = await db.query(
-          `INSERT INTO books (title, year_of_publication, abstract, author_id)
-                                            VALUES ($1, $2, $3, $4)
+          `INSERT INTO habits (habit_name, habit_category)
+                                            VALUES ($1, $2)
                                             RETURNING *;`,
-          [title, yearOfPublication, abstract, author.id]
+          [habit_name, habit_category]
         );
         resolve(result.rows[0]);
       } catch (err) {
-        reject("Book could not be created");
+        reject("Habit could not be created");
       }
     });
   }
@@ -61,17 +62,17 @@ module.exports = class Habit {
     return new Promise(async (resolve, reject) => {
       try {
         const result = await db.query(
-          `DELETE FROM books WHERE id = $1 RETURNING author_id;`,
+          `DELETE FROM habits WHERE id = $1 RETURNING habit_name;`,
           [this.id]
         ); //backtip
-        const author = await Author.findById(result.rows[0].author_id);
-        const books = await author.books;
-        if (!books.length) {
-          await author.destroy();
+        const user = await User.findById(result.rows[0].username);
+        const habits = await user.habits;
+        if (!habits.length) {
+          //   await user.destroy(); No need to delete user
         }
-        resolve("Book was deleted");
+        resolve("Habit was deleted");
       } catch (err) {
-        reject("Book could not be deleted");
+        reject("Habit could not be deleted");
       }
     });
   }
