@@ -2,15 +2,15 @@ const express = require("express");
 const cors = require("cors");
 
 const server = express();
-server.use(cors());
+server.use(cors("*"));
 server.use(express.json());
 
-const booksRoutes = require("./routes/books");
-const authorsRoutes = require("./routes/authors");
-server.use("/books", booksRoutes);
-server.use("/authors", authorsRoutes);
+// const booksRoutes = require("./routes/books");
+// const authorsRoutes = require("./routes/authors");
+// server.use("/books", booksRoutes);
+// server.use("/authors", authorsRoutes);
 
 // Root route
-server.get("/", (req, res) => res.send("Welcome to the library"));
+server.get("/", (req, res) => res.send("Welcome to Nichijou!"));
 
 module.exports = server;

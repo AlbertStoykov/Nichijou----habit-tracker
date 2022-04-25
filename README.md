@@ -1,25 +1,20 @@
 # Vital---habit-tracker
+
 Futureproof LAP 2 Portfolio Week Project
-
-
-## Example README
-
-Below is an example of what a README could look like.
-
-# Assignment 1
 
 ## Installation & Usage
 
 ### Installation
 
-* Clone or download the repo.
-* Open terminal and navigate to `fizzbuzz` folder.
-* Run `npm install` to install dependencies.
+- Clone or download the repo.
 
 ### Usage
 
-* Run `npm start` to launch server.
-* Run `npm test` to launch test suite.
+- Run `./_scripts/startDev.sh` to launch server.
+- Run `./_scripts/startDev.sh` to launch test suite.
+- Run `./_scripts/teardown.sh` to reset environment.
+
+- DO NOT run Dev and Test suite at the same time!
 
 ## Changelog
 
@@ -33,15 +28,15 @@ Below is an example of what a README could look like.
 
 ## Bugs
 
-[] Function logs 15 as `fizz` when it should log `fizzbuzz`
+[]
 
 ## Wins & Challenges
 
 ### Wins
 
-* Managed to implement a loop.
-* Learned how to use modulus operator.
+- Managed to implement a loop.
+- Learned how to use modulus operator.
 
 ### Challenges
 
-* Realised using return would not log all numbers up to the arguement number.
+- Realised using return would not log all numbers up to the arguement number.

@@ -1,7 +1,7 @@
 services:
   api:
-    container_name: debug_test_api
-    environment: 
+    container_name: Nichijou_test_api
+    environment:
       - PGUSER=futureproof
       - PGHOST=db
       - PGPASSWORD=librarypass
@@ -12,14 +12,14 @@ services:
       - db
     tty: true
   db:
-    container_name: debug_test_db
+    container_name: Nichijou_test_db
     volumes:
       - "test_db:/var/lib/postgresql/data"
-    environment: 
+    environment:
       - POSTGRES_DB=library_test
       - POSTGRES_PASSWORD=librarypass
 volumes:
   test_db:
-networks: 
+networks:
   default:
-    name: debug_test
+    name: Nichijou_test
