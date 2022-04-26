@@ -12,11 +12,11 @@ module.exports = class Habit {
   static get all() {
     return new Promise(async (resolve, reject) => {
       try {
-        let habitData = await db.query(`SELECT * FROM habits;`); //backtip
+        let habitData = await db.query(`SELECT * FROM habits;`);
         let habits = habitData.rows.map((b) => new Habit(b));
         resolve(habits);
       } catch (err) {
-        reject("Habit not found");
+        reject("Habits not found");
       }
     });
   }

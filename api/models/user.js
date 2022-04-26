@@ -16,7 +16,7 @@ module.exports = class User {
         const result = await db.query(`SELECT * FROM users;`);
         const users = result.rows.map((a) => ({
           id: a.id,
-          name: a.username,
+          username: a.username,
         }));
         resolve(users);
       } catch (err) {
