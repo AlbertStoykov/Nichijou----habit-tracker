@@ -71,38 +71,38 @@ module.exports = class User {
     });
   }
 
-  //   static create(name) {
-  //     return new Promise(async (resolve, reject) => {
-  //       try {
-  //         let authorData = await db.query(
-  //           `INSERT INTO authors (name) VALUES ($1) RETURNING *;`,
-  //           [name]
-  //         ); //backtip and semi column
-  //         let author = new Author(authorData.rows[0]);
-  //         resolve(author);
-  //       } catch (err) {
-  //         reject("Author could not be created");
-  //       }
-  //     });
-  //   } Creating User not needed, this will be done through sign up process.
+  static create(name) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        let userData = await db.query(
+          `INSERT INTO users (id, first_name, last_name, username, user_password, email) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;`,
+          [id, first_name, last_name, username, user_password, email]
+        ); //backtip and semi column
+        let user = new User(userData.rows[0]);
+        resolve(user);
+      } catch (err) {
+        reject("User could not be created");
+      }
+    });
+  }
 
-  //   static findOrCreateByName(name) {
-  //     return new Promise(async (resolve, reject) => {
-  //       try {
-  //         let author;
-  //         const authorData = await db.query(
-  //           `SELECT * FROM authors WHERE name = $1;`,
-  //           [name]
-  //         ); //backtip
-  //         if (!authorData.rows.length) {
-  //           author = await Author.create(name);
-  //         } else {
-  //           author = new Author(authorData.rows[0]);
-  //         }
-  //         resolve(author);
-  //       } catch (err) {
-  //         reject(err);
-  //       }
-  //     });
-  //   }
+  static findOrCreateByName(name) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        let user;
+        const userData = await db.query(
+          `SELECT * FROM users WHERE first_name = $1;`,
+          [first_name]
+        );
+        if (!userData.rows.length) {
+          user = await User.create(name);
+        } else {
+          user = new User(userData.rows[0]);
+        }
+        resolve(user);
+      } catch (err) {
+        reject(err);
+      }
+    });
+  }
 };
