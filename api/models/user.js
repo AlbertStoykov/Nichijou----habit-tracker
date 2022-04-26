@@ -13,7 +13,7 @@ module.exports = class User {
   static get all() {
     return new Promise(async (resolve, reject) => {
       try {
-        const result = await db.query(`SELECT * FROM users;`); //backtip and semi column
+        const result = await db.query(`SELECT * FROM users;`);
         const users = result.rows.map((a) => ({
           id: a.id,
           name: a.username,
@@ -31,7 +31,7 @@ module.exports = class User {
         const result = await db.query(
           `SELECT id, habit_name FROM habits WHERE id = $1;`,
           [this.id]
-        ); //backtip
+        );
         const habits = result.rows.map((b) => ({
           name: b.habit_name,
           path: `/habits/${b.id}`,
@@ -49,7 +49,7 @@ module.exports = class User {
         const result = await db.query(
           `DELETE FROM users WHERE id = $1 RETURNING username;`,
           [this.id]
-        ); //backtip
+        );
         resolve(`User ${result.username} was deleted`);
       } catch (err) {
         reject("User could not be deleted");
@@ -62,7 +62,7 @@ module.exports = class User {
       try {
         let userData = await db.query(`SELECT * FROM users WHERE id = $1;`, [
           id,
-        ]); //backtip
+        ]);
         let user = new User(userData.rows[0]);
         resolve(user);
       } catch (err) {
