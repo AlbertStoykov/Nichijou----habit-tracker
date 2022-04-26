@@ -64,7 +64,7 @@ module.exports = class Habit {
         const result = await db.query(
           `DELETE FROM habits WHERE id = $1 RETURNING habit_name;`,
           [this.id]
-        ); //backtip
+        );
         const user = await User.findById(result.rows[0].username);
         const habits = await user.habits;
         if (!habits.length) {

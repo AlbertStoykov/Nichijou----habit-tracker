@@ -47,8 +47,8 @@ module.exports = class User {
     return new Promise(async (resolve, reject) => {
       try {
         const result = await db.query(
-          `DELETE FROM users WHERE id = $1 RETURNING username;`,
-          [this.id]
+          `DELETE FROM users WHERE username = $1 RETURNING username;`,
+          [this.username]
         );
         resolve(`User ${result.username} was deleted`);
       } catch (err) {
@@ -77,7 +77,7 @@ module.exports = class User {
         let userData = await db.query(
           `INSERT INTO users (id, first_name, last_name, username, user_password, email) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;`,
           [id, first_name, last_name, username, user_password, email]
-        ); //backtip and semi column
+        );
         let user = new User(userData.rows[0]);
         resolve(user);
       } catch (err) {
@@ -95,7 +95,7 @@ module.exports = class User {
           [first_name]
         );
         if (!userData.rows.length) {
-          user = await User.create(name);
+          // user = await User.create(name);
         } else {
           user = new User(userData.rows[0]);
         }
