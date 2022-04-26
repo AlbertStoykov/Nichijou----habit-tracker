@@ -29,12 +29,12 @@ module.exports = class User {
     return new Promise(async (resolve, reject) => {
       try {
         const result = await db.query(
-          `SELECT id, habit_name FROM habits WHERE id = $1;`,
+          `SELECT id, habit_name, habit_category FROM habits WHERE id = $1;`,
           [this.id]
         );
         const habits = result.rows.map((b) => ({
-          name: b.habit_name,
-          path: `/habits/${b.id}`,
+          category: b.habit_category,
+          habit: b.habit_name,
         }));
         resolve(habits);
       } catch (err) {
