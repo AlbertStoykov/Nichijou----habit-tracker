@@ -155,18 +155,67 @@ h4 {
 }
 
 
-/**/
+/*last section asking users to join*/
 .last-ask {
     min-height: 400px;
+    max-height: 420px;
     background-color: #202020;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../img/nichijou-logo-white-op40-blur4.png);
+    background-repeat: no-repeat;
+    background-size: 390px;
+    background-position: 10%;
 }
 
+.last-ask h1 {
+    text-align: center;
+    font-family: Josefin Sans;
+    color: #fefcfb;
+}
 
-/**/
+.emptyFill2 {
+    min-height: 150px;
+    max-height: 200px;
+}
+
+/*developer team introduction*/
 .dev-team {
-    min-height: 400px;
+    min-height: 520px;
 }
 
+.dev-team h1 {
+    text-align: center;
+    font-family: Josefin Sans;
+    padding-top: 40px;
+    padding-bottom: 30px;
+}
+
+.devBox {
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
+
+.devBox h3{
+    padding: 15px;
+    text-align: center;
+}
+
+.devBox a {
+    color: #202020;
+    text-decoration: none;
+}
+
+.devPic {
+    background-color: #202020;
+    width: 250px;
+    height: 250px;
+    display: block;
+    margin: auto;
+    border-radius: 250px;
+    border: none;
+}
 
 /**/
 footer {
