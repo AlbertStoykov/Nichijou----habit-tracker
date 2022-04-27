@@ -28,7 +28,7 @@ router.post('/login', async (req, res) => {
         const secret ="super-secret"
         jwt.sign(payload,
             secret,
-            {expiresIn: 60 * 20},(err,token) => {
+            {expiresIn: 60 * 60},(err,token) => {
         if(err){
             throw new Error ('Error generating token');
         }else{
@@ -37,7 +37,7 @@ router.post('/login', async (req, res) => {
     })
         
         } else{
-            throw new Error ('User could nor authenicated ')
+            throw new Error ('User could not be authenicated ')
         }
             }catch (err){
                 res.status(401).json({err});

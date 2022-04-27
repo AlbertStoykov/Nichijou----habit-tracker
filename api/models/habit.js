@@ -1,4 +1,5 @@
 const db = require('../dbConfig/init');
+const SQL = require('sql-template-strings');
 
 
 class Habit { 
@@ -10,14 +11,14 @@ class Habit {
     static get all(){
         return new Promise(async (res, rej) => {
             try { 
-                let result = await db.query(`SELECT posts.*, users.username as username 
-                                                    FROM posts 
+                let result = await db.query(SQL`SELECT habits.*, users.username as username 
+                                                    FROM habits
                                                     JOIN users 
-                                                    ON posts.user_id = users.id;`);
-                let posts = result.rows.map(r => new Post(r)) 
-                res(posts) 
+                                                    ON habits.user_id = users.id;`);
+                let habits = result.rows.map(r => new Habit(r)) 
+                res(habits) 
             } catch (err) { 
-                rej(`Error retrieving posts: ${err}`) // reject request and respond with message and specific error
+                rej(`Error retrieving Habit: ${err}`) // reject request and respond with message and specific error
             }
         })
     }

@@ -14,7 +14,7 @@ async function getAllPosts(){ //using this function to load the post
 
 //we have reference the options 
 
-        const response = await fetch('http://localhost:3000/posts', options);
+        const response = await fetch('http://localhost:3000/habit', options);
         const data = await response.json();
         return data;
     } catch (err) {

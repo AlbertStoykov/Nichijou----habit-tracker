@@ -24,8 +24,8 @@ function verifyToken(req, res, next){
 router.get('/', verifyToken, async (req, res) => { //just before you do this repsonse(post all ) verify the token 
     //setting this up for express to handle this 
     try {
-        const posts = await Post.all
-        res.json(posts)
+        const hab = await Habit.all
+        res.json(hab)
     } catch (err) {
         res.status(500).send({ err })
     }

@@ -26,6 +26,7 @@
     "express": "^4.17.1",
     "pg": "^8.3.3",
     "bcrypt": "*",
-    "jsonwebtoken": "*"
+    "jsonwebtoken": "*",
+    "sql-template-strings": "*"
   }
 }

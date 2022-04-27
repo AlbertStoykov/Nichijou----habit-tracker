@@ -1,82 +1,12 @@
-INSERT INTO users (first_name, last_name, username, user_password, email) 
+INSERT INTO users (username, email, password_digest)  
 VALUES
-('Al', 'Capone', 'alCapone', 'hashed password here', 'capone@gmail.com'),
-('Bob', 'Stones', 'Bobby', 'hashed password here', 'stones@gmail.com'),
-('Kev', 'Smith', 'kevin', 'hashed password here', 'kev@gmail.com');
+    ('Gingertonic', 'beth@getfutureproof.co.uk', 'tu9ibtoi4tbh2hhuet' ),
+    ('Sparrow', 'jack@sparrow.com', 'h4hoeuba3r3tbaeu' ),
+    ('trumpetgems', 'friend@circus.dk', 'ahudnthpdohbapbb243' );
 
-INSERT INTO habits (habit_name, habit_category) 
+INSERT INTO habits (user_id, body) 
 VALUES
-
-(
-    'Running', 'Health' 
-),
-
-(
-    'Sleep', 'Health' 
-),
-
-(
-    'Sport', 'Health' 
-),
-
-(
-    'Reading', 'Hobbies' 
-),
-
-(
-    'Painting', 'Hobbies' 
-)
-
-INSERT INTO recurring_habits;
-VALUES (userID, habitID, title, description, schedule_day, schedule_time)
-
-(
-    'Bobby', 
-    1,
-    "Reading", 
-    "Read for 1 hour",
-    "Monday",
-    21:30
-),
-
-(
-    'kevin', 
-    2,
-    "Running", 
-    "Ran for 1 hour",
-    "Wednesday",
-    16:30
-),
-
-(
-    'alCapone', 
-    3,
-    "Painting", 
-    "Painted for 2 hours",
-    "Sunday",
-    14:30
-)
-
-INSERT INTO habit_confirmation;
-VALUES (userHabitID, completion_date, confirmation, total_time)
-
-(
-    1,
-    25/04/2022, 
-    1,
-    1
-),
-
-(
-    2,
-    25/04/2022, 
-    1,
-    1
-),
-
-(
-    3,
-    24/04/2022, 
-    1,
-    2
-)
+    (1, 'futurebook is so secure'),
+    (2, 'But why is the rum gone?'),
+    (3, 'I like tea'),
+    (1, 'I love hummus');
