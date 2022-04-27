@@ -1,26 +1,66 @@
 const db = require('../dbConfig/init');
 
+const User = require("./User");
 
-class Habit { 
-    constructor(data) {
-        this.body = data.body
-        this.username = data.username
+
+module.exports = class Habit { 
+    constructor(data, habit) {
+      //From Albert branch
+      this.id = data.id;
+      this.habit_name = data.habit_name;
+      this.habit_category = data.habit_category;
+      
+      // From Amarachi branch
+      this.body = data.body
+      this.username = data.username
     }
 
-    static get all(){
-        return new Promise(async (res, rej) => {
-            try { 
-                let result = await db.query(`SELECT posts.*, users.username as username 
-                                                    FROM posts 
-                                                    JOIN users 
-                                                    ON posts.user_id = users.id;`);
-                let posts = result.rows.map(r => new Post(r)) 
-                res(posts) 
-            } catch (err) { 
-                rej(`Error retrieving posts: ${err}`) // reject request and respond with message and specific error
-            }
-        })
-    }
-}
+  static get all() {
+    return new Promise(async (resolve, reject) => {
+      try {
+        let habitData = await db.query(`SELECT * FROM habits;`);
+        let habits = habitData.rows.map((b) => new Habit(b));
+        resolve(habits);
+      } catch (err) {
+        reject("Habits not found");
+      }
+    });
+  }
 
-module.exports = Habit
+  static async create(habitData) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const { habit_name, habit_category } = habitData;
+        let user = await User.findOrCreateByName(habit_name);
+        let result = await db.query(
+          `INSERT INTO habits (habit_name, habit_category)
+                                            VALUES ($1, $2)
+                                            RETURNING *;`,
+          [habit_name, habit_category]
+        );
+        resolve(result.rows[0]);
+      } catch (err) {
+        reject("Habit could not be created");
+      }
+    });
+  }
+
+  destroy() {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const result = await db.query(
+          `DELETE FROM habits WHERE id = $1 RETURNING habit_name;`,
+          [this.id]
+        );
+        const user = await User.findById(result.rows[0].username);
+        const habits = await user.habits;
+        if (!habits.length) {
+          //   await user.destroy(); No need to delete user
+        }
+        resolve("Habit was deleted");
+      } catch (err) {
+        reject("Habit could not be deleted");
+      }
+    });
+  }
+};

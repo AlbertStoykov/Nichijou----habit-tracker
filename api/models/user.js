@@ -51,3 +51,50 @@ class User { //specifies value wanted from specific key for the endpoint user
 }
 
 module.exports = User // exported to controller 
+
+  get habits() {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const result = await db.query(
+          `SELECT id, habit_name FROM habits WHERE id = $1;`,
+          [this.id]
+        );
+        const habits = result.rows.map((b) => ({
+          name: b.habit_name,
+          path: `/habits/${b.id}`,
+        }));
+        resolve(habits);
+      } catch (err) {
+        reject("User's habits could not be found");
+      }
+    });
+  }
+
+  destroy() {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const result = await db.query(
+          `DELETE FROM users WHERE username = $1 RETURNING username;`,
+          [this.username]
+        );
+        resolve(`User ${result.username} was deleted`);
+      } catch (err) {
+        reject("User could not be deleted");
+      }
+    });
+  }
+
+  static findById(id) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        let userData = await db.query(`SELECT * FROM users WHERE id = $1;`, [
+          id,
+        ]);
+        let user = new User(userData.rows[0]);
+        resolve(user);
+      } catch (err) {
+        reject("User not found");
+      }
+    });
+  }
+
