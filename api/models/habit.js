@@ -4,8 +4,8 @@ const SQL = require('sql-template-strings');
 
 class Habit { 
     constructor(data) {
-        this.body = data.body
-        this.username = data.username
+      this.body = data.body
+      this.username = data.username
     }
 
     static get all(){
