@@ -15,10 +15,10 @@ describe("users controller", () => {
     test("it returns users with a 200 status code", async () => {
       jest
         .spyOn(User, "all", "get")
-        .mockResolvedValue(["Test user1", "Test user2"]);
+        .mockResolvedValue(["testUser1", "testUser2"]);
       await usersController.index(null, mockRes);
       expect(mockStatus).toHaveBeenCalledWith(200);
-      expect(mockJson).toHaveBeenCalledWith(["Test user1", "Test user2"]);
+      expect(mockJson).toHaveBeenCalledWith(["testUser1", "testUser2"]);
     });
   });
 
