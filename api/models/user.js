@@ -35,6 +35,7 @@ module.exports = class User {
         const habits = result.rows.map((b) => ({
           category: b.habit_category,
           habit: b.habit_name,
+          path: `/habits/${b.id}`,
         }));
         resolve(habits);
       } catch (err) {

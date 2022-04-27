@@ -21,11 +21,14 @@ describe("User", () => {
     test("it resolves with formatted habits on successful db query", async () => {
       jest.spyOn(db, "query").mockResolvedValueOnce({
         rows: [
-          { id: 1, habit_name: "testHabit1" },
-          { id: 2, habit_name: "testHabit2" },
+          { id: 1, habit_name: "testHabit1", habit_category: "testHabitCat1" },
+          { id: 2, habit_name: "testHabit2", habit_category: "testHabitCat2" },
         ],
       });
-      let testUser = new User({ id: 1, first_name: "Test User 1" });
+      let testUser = new User({
+        id: 1,
+        first_name: "Test User",
+      });
       const habits = await testUser.habits;
       expect(habits).toHaveLength(2);
       expect(habits[0]).toHaveProperty("path", "/habits/1");
