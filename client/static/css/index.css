@@ -300,6 +300,8 @@ footer a {
     font-size: 1.25rem;
     font-weight: bold;
     right: 15px;
+    text-decoration: none;
+    color: white;
 }
 
 .modalCenterLogo {
