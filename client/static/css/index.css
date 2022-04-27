@@ -273,23 +273,6 @@ footer a {
 
 /*describing the modal*/
 
-#overlay {
-    position: fixed;
-    opacity: 0;
-    transition: 200ms ease-in-out;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, .5);
-    pointer-events: none;
-}
-
-#overlay.active {
-    opacity: 1;
-    pointer-events: all;
-  }
-
 .modalWhole {
     position: fixed;
     top: 50%;
@@ -301,10 +284,6 @@ footer a {
     background-color: #034078;
     width: 500px;
     max-width: 80%;
-}
-
-.modalWhole.active {
-    transform: translate(-50%, -50%) scale(1);
 }
 
 .modalHeader {
@@ -321,6 +300,8 @@ footer a {
     font-size: 1.25rem;
     font-weight: bold;
     right: 15px;
+    text-decoration: none;
+    color: white;
 }
 
 .modalCenterLogo {
@@ -335,5 +316,60 @@ footer a {
     margin: auto;
 }
 
+.modalForm {
+    width: 80%;
+    display: block;
+    padding-top: 30px;
+    padding-bottom: 5px;
+    margin: auto;
+}
 
+.modalForm .row {
+    margin: 6px;
+}
 
+.labelForm {
+    float: right;
+    color: #fefcfb;
+}
+
+.modalFormBox {
+    border-radius: 5px;
+    border: none;
+}
+
+.register-btn {
+    padding: 20px;
+    position: relative;
+}
+
+.modal-btn {
+    background-color: #1282a2;
+    border: none;
+    color: #fefcfb;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 3px;
+    padding: 7px 13px 9px 13px;
+    display: block;
+    margin: auto;
+    align-content: center;
+}
+
+.alternativeSign {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    color: #fefcfb;
+    display: block;
+    margin: auto;
+    padding-top: 30px;
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+#bgRandom {
+    height: 100vh;
+    background-color: #1282a2;
+}
