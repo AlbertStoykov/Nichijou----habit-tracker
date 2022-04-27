@@ -1,0 +1,77 @@
+const habitsController = require("../../../controllers/habits");
+const Habit = require("../../../models/Habit");
+
+const mockSend = jest.fn();
+const mockJson = jest.fn();
+const mockStatus = jest.fn((code) => ({
+  send: mockSend,
+  json: mockJson,
+  end: jest.fn(),
+}));
+const mockRes = { status: mockStatus };
+
+describe("habits controller", () => {
+  beforeEach(() => jest.clearAllMocks());
+
+  afterAll(() => jest.resetAllMocks());
+
+  describe("index", () => {
+    test("it returns habits with a 200 status code", async () => {
+      jest.spyOn(Habit, "all", "get").mockResolvedValue(["habit1", "habit2"]);
+      await habitsController.index(null, mockRes);
+      expect(mockStatus).toHaveBeenCalledWith(200);
+      expect(mockJson).toHaveBeenCalledWith(["habit1", "habit2"]);
+    });
+  });
+
+  describe("show", () => {
+    test("it returns a habit with a 200 status code", async () => {
+      let testHabit = {
+        id: 1,
+        habit_name: "testHabit1",
+        habit_category: "testHabitCat1",
+      };
+      jest.spyOn(Habit, "findById").mockResolvedValue(new Habit(testHabit));
+
+      const mockReq = { params: { id: 1 } };
+      await habitsController.show(mockReq, mockRes);
+      expect(mockStatus).toHaveBeenCalledWith(200);
+      expect(mockJson).toHaveBeenCalledWith(new Habit(testHabit));
+    });
+  });
+
+  describe("create", () => {
+    test("it returns a new habit with a 201 status code", async () => {
+      let testHabit = {
+        id: 2,
+        habit_name: "testHabit2",
+        habit_category: "testHabitCat2",
+      };
+      jest.spyOn(Habit, "create").mockResolvedValue(new Habit(testHabit));
+
+      const mockReq = { body: testHabit };
+      await habitsController.create(mockReq, mockRes);
+      expect(mockStatus).toHaveBeenCalledWith(201);
+      expect(mockJson).toHaveBeenCalledWith(new Habit(testHabit));
+    });
+  });
+
+  describe("destroy", () => {
+    test("it returns a 204 status code on successful deletion", async () => {
+      jest.spyOn(Habit.prototype, "destroy").mockResolvedValue("Deleted");
+
+      const mockReq = {
+        params: {
+          id: 1,
+          first_name: "Test User 1",
+          last_name: "Test User 1",
+          username: "user1",
+          user_password: "hashed",
+          email: "user1@gmail.com",
+        },
+      };
+      await habitsController.destroy(mockReq, mockRes);
+      expect(mockStatus).toHaveBeenCalledWith(204);
+    });
+  });
+});

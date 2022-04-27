@@ -1,6 +1,6 @@
 const Habit = require("../models/habit");
-const router = express.Router();
-const jwt = require("jsonwebtoken");
+// const router = express.Router();
+// const jwt = require("jsonwebtoken");
 
 async function index(req, res) {
   try {
