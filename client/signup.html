@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script defer src="static/js/sign-in-up.js"></script>
+    <title>Register</title>
+</head>
+
+<body>
+    <div id="bgRandom"></div>
+    <div class="modalWhole" id="modalWhole">
+        <div class="modalHeader">
+            <button closeModal class="close-button">&times;</button>
+        </div>
+        <div class="modalCenterLogo">
+            <img src="static/img/nichijou-logo-white.png" alt="logo" class="logomodal">
+        </div>
+        <div class="modalForm">
+            <form id="">
+                <div class="row">
+                    <div class="col-4"><label class="labelForm" for="fname">First Name </label></div>
+                    <div class="col-8"><input type="text" name="fname" id="fname" class="modalFormBox"></div>
+                </div>
+                <div class="row">
+                    <div class="col-4"><label class="labelForm" for="fname">Last Name </label></div>
+                    <div class="col-8"><input type="text" name="lname" id="lname" class="modalFormBox"></div>
+                </div>
+                <div class="row">
+                    <div class="col-4"><label class="labelForm" for="fname">Username </label></div>
+                    <div class="col-8"><input type="text" name="username" id="username" class="modalFormBox"></div>
+                </div>
+                <div class="row">
+                    <div class="col-4"><label class="labelForm" for="fname">Email </label></div>
+                    <div class="col-8"><input type="email" name="email" id="email" class="modalFormBox"></div>
+                </div>
+                <div class="row">
+                    <div class="col-4"><label class="labelForm" for="fname">Password </label></div>
+                    <div class="col-8"><input type="password" name="password" id="password" class="modalFormBox">
+                    </div>
+                </div>
+                <div class="register-btn">
+                    <input type="submit" value="Register" class="modal-btn">
+                    <button id="openLogIn" class="alternativeSign">Already registred? Log in!</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
