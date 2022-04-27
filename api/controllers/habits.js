@@ -70,4 +70,4 @@ router.get('/', verifyToken, async (req, res) => { //just before you do this rep
     }
 })
 
-module.exports = router;
+module.exports = {index, show, create, destroy, verifyToken};
