@@ -1,0 +1,93 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body {
+    --darker-Blue:#034078;
+    --medium-Blue:#1282A2;
+    --off-White:#FEFCFB;
+}
+
+.sideBarOption {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.sideBarOption .material-symbols-outlined{
+    padding: 20px;
+}
+
+.sideBarOption h2 {
+    font-weight: 800;
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+.sideBarOption:hover {
+    background-color: var(--medium-Blue);
+    border-radius: 30px;
+    color: var(--off-White)!important;
+    max-width: 200px;
+    
+}
+
+.sideBarOption.active {
+    color:var(--medium-Blue);
+
+}
+
+body{
+    display: flex;
+    height: 100vh;
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 10px;
+}
+
+.sideBar{
+    border-right: 1px solid var(--medium-Blue)!important;
+    flex: 0.2;
+    min-width: 250px;
+    margin-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    
+}
+
+.card-body{
+    border: 1px solid var(--darker-Blue);
+    border-radius: 10px;
+    width: 500px;
+    align-items: center;
+    background-color: var(--medium-Blue);
+    margin-left: 350px;
+    margin-bottom: 50px;
+}
+
+.card-body .card-title{
+    color: var(--off-White);
+}
+
+.card-body ul{
+    padding-left: 150px ;
+    color: var(--off-White);
+}
+
+.card-body li{
+    color: var(--off-White)!important;
+}
+
+@media only screen and (max-width: 992px){
+
+    body{
+        flex-direction: column;
+    }
+
+    .sideBar{
+        height: 150px;
+    }    
+};
