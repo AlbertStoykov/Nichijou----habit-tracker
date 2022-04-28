@@ -1,8 +1,8 @@
-INSERT INTO users (first_name, last_name, username, user_password, email) 
+INSERT INTO users (first_name, last_name, username,email,user_password) 
 VALUES
-('Al', 'Capone', 'alCapone', 'hashed password here', 'capone@gmail.com'),
-('Bob', 'Stones', 'Bobby', 'hashed password here', 'stones@gmail.com'),
-('Kev', 'Smith', 'kevin', 'hashed password here', 'kev@gmail.com');
+('Al', 'Capone', 'alCapone', 'capone@gmail.com','hashed password'),
+('Bob', 'Stones', 'Bobby', 'stones@gmail.com','hashed password'),
+('Kev', 'Smith', 'kevin', 'kev@gmail.com','hashed password');
 
 INSERT INTO habits (habit_name, habit_category) 
 VALUES

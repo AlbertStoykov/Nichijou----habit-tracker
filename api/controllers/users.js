@@ -1,41 +1,11 @@
-const User = require("../models/user");
+const express = require('express');
+const router = express.Router();
 
-async function index(req, res) {
-  try {
-    const users = await User.all;
-    res.status(200).json(users);
-  } catch (err) {
-    res.status(500).send(err);
-  }
-}
+const User = require('../models/user'); // controller control the model
 
-async function show(req, res) {
-  try {
-    const user = await User.findById(req.params.id);
-    const habits = await user.habits;
-    res.status(200).json({ ...user, habits });
-  } catch (err) {
-    res.status(500).send(err);
-  }
-}
+router.get('/', async (req, res) => { // root
+    const users = await User.all  // get all the users 
+    res.json(users) // response of user data in json 
+})
 
-async function create(req, res) {
-  try {
-    const user = await User.create(req.body);
-    res.status(201).json(user);
-  } catch (err) {
-    res.status(422).json({ err });
-  }
-}
-
-async function destroy(req, res) {
-  try {
-    const user = await User.findById(req.params.id);
-    const resp = await user.destroy();
-    res.status(204).end();
-  } catch (err) {
-    res.status(404).json({ err });
-  }
-}
-
-module.exports = { index, show, create, destroy };
+module.exports = router;
