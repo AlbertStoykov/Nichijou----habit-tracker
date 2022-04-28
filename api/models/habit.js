@@ -24,9 +24,13 @@ module.exports = class Habit {
   static findById(id) {
     return new Promise(async (resolve, reject) => {
       try {
-        let habitData = await db.query(`SELECT * FROM habits WHERE id = $1;`, [
-          id,
-        ]);
+        let habitData = await db.query(
+          `SELECT habits.*, users.username as username
+           FROM habits
+           JOIN users ON habits.id = users.id
+           WHERE habits.id = $1;`,
+          [id]
+        );
         let habit = new Habit(habitData.rows[0]);
         resolve(habit);
       } catch (err) {

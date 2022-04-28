@@ -72,7 +72,7 @@ module.exports = class User {
     });
   }
 
-  static create(name) {
+  static create(id, first_name, last_name, username, user_password, email) {
     return new Promise(async (resolve, reject) => {
       try {
         let userData = await db.query(

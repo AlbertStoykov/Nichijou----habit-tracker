@@ -66,8 +66,8 @@ describe("User", () => {
     test("it resolves with user on successful db query", async () => {
       let userData = {
         id: 1,
-        first_name: "Test User 1",
-        last_name: "Test User 1",
+        first_name: "Test",
+        last_name: "Test",
         username: "user1",
         user_password: "hashed",
         email: "user1@gmail.com",
