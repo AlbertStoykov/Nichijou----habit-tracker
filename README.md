@@ -1,9 +1,4 @@
 # Nichijou 日常 ---habit-tracker
-Futureproof LAP 2 Portfolio Week Project
-
-
-## Example README
-
 
 Futureproof LAP 2 Portfolio Week Project
 
@@ -21,27 +16,19 @@ Futureproof LAP 2 Portfolio Week Project
 
 - DO NOT run Dev and Test suite at the same time!
 
-## Changelog
-
-### index.html
-
-[x] Fixed filepath to correctly connect CSS to HTML file.
-
-### server.js
-
-[x] Updated `fizzbuzz` funtion to accept an arguement.
-
 ## Bugs
 
-[]
+[] - Database stopped working after merge conflicts on github.
+[] - Tests seem to pass and fail at random, working on fixing one test breaks another test.
 
 ## Wins & Challenges
 
 ### Wins
 
-- Managed to implement a loop.
-- Learned how to use modulus operator.
+- Setting up server, database and API.
+- 4/6 Test suites and 16/20 Tests passing.
 
 ### Challenges
 
-- Realised using return would not log all numbers up to the arguement number.
+- Making API and database work.
+- Setting up and Passing tests.
