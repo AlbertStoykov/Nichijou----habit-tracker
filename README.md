@@ -9,7 +9,7 @@ Team Nichijou:
 
 ## Description 
 [What does the application do]
-  * Nichijou is a habit tracker website. Nichijou means "daily life" in Japanese, our plan is to help users in improve their habits by tracking them.
+  * Nichijou is a habit tracker website. Nichijou means "daily life" in Japanese, our plan is to help users improve their habits by tracking them.
 
 ---
 
