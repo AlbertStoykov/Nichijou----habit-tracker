@@ -17,10 +17,32 @@ describe("habits controller", () => {
 
   describe("index", () => {
     test("it returns habits with a 200 status code", async () => {
-      jest.spyOn(Habit, "all", "get").mockResolvedValue(["habit1", "habit2"]);
+      jest.spyOn(Habit, "all", "get").mockResolvedValue([
+        {
+          habit_category: "testHabitCat2",
+          habit_name: "testHabit2",
+          id: 2,
+        },
+        {
+          habit_category: "testHabitCat3",
+          habit_name: "testHabit3",
+          id: 3,
+        },
+      ]);
       await habitsController.index(null, mockRes);
       expect(mockStatus).toHaveBeenCalledWith(200);
-      expect(mockJson).toHaveBeenCalledWith(["habit1", "habit2"]);
+      expect(mockJson).toHaveBeenCalledWith([
+        {
+          habit_category: "testHabitCat2",
+          habit_name: "testHabit2",
+          id: 2,
+        },
+        {
+          habit_category: "testHabitCat3",
+          habit_name: "testHabit3",
+          id: 3,
+        },
+      ]);
     });
   });
 
