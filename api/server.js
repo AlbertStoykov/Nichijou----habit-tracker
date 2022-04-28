@@ -5,12 +5,18 @@ const server = express();
 server.use(cors("*"));
 server.use(express.json());
 
-// const booksRoutes = require("./routes/books");
-// const authorsRoutes = require("./routes/authors");
-// server.use("/books", booksRoutes);
-// server.use("/authors", authorsRoutes);
+const habitsRoutes = require("./routes/habits");
+const usersRoutes = require("./routes/users");
+const authRoutes = require("./controllers/auth");
+
+server.use("/auth", authRoutes);
+server.use("/habits", habitsRoutes);
+server.use("/users", usersRoutes);
 
 // Root route
 server.get("/", (req, res) => res.send("Welcome to Nichijou!"));
+// server.get("/users", (req,res) => res.send("users"));
+// server.get("/habits",(req, res) => res.send("habits"));
+// server.get("/auth", (req,res) => res.send("auth"));
 
 module.exports = server;
