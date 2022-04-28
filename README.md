@@ -18,15 +18,15 @@ Futureproof LAP 2 Portfolio Week Project
 
 ## Bugs
 
-[] - Database stopped working after merge conflicts on github.
+[] - Database stopped working after merge conflicts on github.<br>
 [] - Tests seem to pass and fail at random, working on fixing one test breaks another test.
 
 ## Wins & Challenges
 
 ### Wins
 
-- Setting up server, database and API.
-- 4/6 Test suites and 16/20 Tests passing.
+- [x] Setting up server, database and API.
+- [x] 4/6 Test suites and 16/20 Tests passing.
 
 ### Challenges
 
