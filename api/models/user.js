@@ -7,7 +7,7 @@ module.exports = class User {
     // it wants data on the username,email and the salted and then hashed(encrypted) password
     this.username = data.username;
     this.email = data.email;
-    this.passwordDigest = data.password_digest;
+    this.password = data.user_password;
   }
 
   static get all() {
@@ -52,7 +52,7 @@ module.exports = class User {
         // wait to check if the email inputted for reset corresponds to any of the emails
         // in the email attribute in the user table in the pg db
         let result = await db.query(`SELECT * FROM users
-                                                WHERE email = ${email};`);
+                                                WHERE email = $1;`, [email]);
         let user = new User(result.rows[0]);
         res(user); // if it does response
       } catch (err) {
@@ -66,7 +66,9 @@ module.exports = class User {
     return new Promise(async (resolve, reject) => {
       try {
         const result = await db.query(
-          `SELECT id, habit_name, habit_category FROM recurring_habits WHERE id = $1;`,
+          `SELECT *
+          FROM recurring_habits
+          WHERE recurring_habits.id = $1;`,
           [this.id]
         );
         const habits = result.rows.map((b) => ({

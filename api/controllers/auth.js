@@ -7,6 +7,7 @@ const User = require('../models/user');
 
 router.post('/register', async (req, res) => {
     try {
+        console.log()
         const salt = await bcrypt.genSalt();
         const hashed = await bcrypt.hash(req.body.password, salt);
         await User.create({ ...req.body, password: hashed })
@@ -20,11 +21,11 @@ router.post('/register', async (req, res) => {
 router.post('/login', async (req, res) => {
     try {
         const user = await User.findByEmail(req.body.email)
-        if (!user) { throw new Error('NO user with this email') }
-        const authed = await bcrypt.compare(req.body.password, user.passwordDigest);
+        if (!user) { throw new Error('No user with this email') }
+        const authed = await bcrypt.compare(req.body.password, user.password);
         if (!!authed) {
             const payload = {
-                user: username,
+                user: user.username,
                 role: "admin"
             }
             const secret = "super-secret"
@@ -42,7 +43,7 @@ router.post('/login', async (req, res) => {
             throw new Error('User could nor authenicated ')
         }
     } catch (err) {
-        res.status(401).json({ err });
+        res.status(401).json({ message: err.message });
     }
 })
 
