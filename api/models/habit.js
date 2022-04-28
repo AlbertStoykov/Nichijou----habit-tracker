@@ -57,10 +57,10 @@ module.exports = class Habit {
     return new Promise(async (resolve, reject) => {
       try {
         const result = await db.query(
-          `DELETE FROM habits WHERE id = $1 RETURNING habit_name;`,
+          `DELETE FROM habits WHERE id = $1 RETURNING id;`,
           [this.id]
         );
-        const user = await User.findById(result.rows[0].username);
+        const user = await User.findById(result.rows[0].id);
         const habits = await user.habits;
         if (!habits.length) {
           //   await user.destroy(); No need to delete user

@@ -63,11 +63,6 @@ describe("habits controller", () => {
       const mockReq = {
         params: {
           id: 1,
-          first_name: "Test User 1",
-          last_name: "Test User 1",
-          username: "user1",
-          user_password: "hashed",
-          email: "user1@gmail.com",
         },
       };
       await habitsController.destroy(mockReq, mockRes);
