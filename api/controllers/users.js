@@ -2,7 +2,7 @@ const User = require("../models/user");
 
 async function index(req, res) {
   try {
-    const users = await User.all;
+    const users = await User.all; // do not change ".all"
     res.status(200).json(users);
   } catch (err) {
     res.status(500).send(err);
@@ -13,7 +13,7 @@ async function show(req, res) {
   try {
     const user = await User.findById(req.params.id);
     const habits = await user.habits;
-    res.status(200).json({ ...user, habits });
+    res.status(200).json({ habits });
   } catch (err) {
     res.status(500).send(err);
   }
