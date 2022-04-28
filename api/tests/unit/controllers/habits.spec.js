@@ -50,8 +50,6 @@ describe("habits controller", () => {
     test("it returns a habit with a 200 status code", async () => {
       let testHabit = {
         id: 1,
-        habit_name: "testHabit1",
-        habit_category: "testHabitCat1",
       };
       jest.spyOn(Habit, "findById").mockResolvedValue(new Habit(testHabit));
 

@@ -56,19 +56,33 @@ module.exports = class Habit {
     });
   }
 
+  // destroy() {
+  //   return new Promise(async (resolve, reject) => {
+  //     try {
+  //       const result = await db.query(
+  //         `DELETE FROM habits WHERE id = $1 RETURNING id;`,
+  //         [this.id]
+  //       );
+  //       // const user = await User.findById(result.rows[0].id);
+  //       // const habits = await user.habits;
+  //       // if (!habits.length) {
+  //       //     await user.destroy(); No need to delete user
+  //       // }
+  //       resolve("Habit was deleted");
+  //     } catch (err) {
+  //       reject("Habit could not be deleted");
+  //     }
+  //   });
+  // }
+
   destroy() {
     return new Promise(async (resolve, reject) => {
       try {
         const result = await db.query(
-          `DELETE FROM habits WHERE id = $1 RETURNING id;`,
-          [this.id]
+          `DELETE FROM habits WHERE habit_name = $1 RETURNING habit_name;`,
+          [this.habit_name]
         );
-        const user = await User.findById(result.rows[0].id);
-        const habits = await user.habits;
-        if (!habits.length) {
-          //   await user.destroy(); No need to delete user
-        }
-        resolve("Habit was deleted");
+        resolve(`Habit ${result.habit_name} was deleted`);
       } catch (err) {
         reject("Habit could not be deleted");
       }
