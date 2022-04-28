@@ -72,6 +72,7 @@ module.exports = class User {
         const habits = result.rows.map((b) => ({
           category: b.habit_category,
           habit: b.habit_name,
+          path: `/habits/${b.id}`,
         }));
         resolve(habits);
       } catch (err) {
@@ -104,6 +105,41 @@ module.exports = class User {
         resolve(user);
       } catch (err) {
         reject("User not found");
+      }
+    });
+  }
+
+  static create(id, first_name, last_name, username, user_password, email) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        let userData = await db.query(
+          `INSERT INTO users (id, first_name, last_name, username, user_password, email) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;`,
+          [id, first_name, last_name, username, user_password, email]
+        );
+        let user = new User(userData.rows[0]);
+        resolve(user);
+      } catch (err) {
+        reject("User could not be created");
+      }
+    });
+  }
+
+  static findOrCreateByName(name) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        let user;
+        const userData = await db.query(
+          `SELECT * FROM users WHERE first_name = $1;`,
+          [first_name]
+        );
+        if (!userData.rows.length) {
+          // user = await User.create(name);
+        } else {
+          user = new User(userData.rows[0]);
+        }
+        resolve(user);
+      } catch (err) {
+        reject(err);
       }
     });
   }
