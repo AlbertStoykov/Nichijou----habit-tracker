@@ -33,17 +33,21 @@ reminderBttn.addEventListener('click', () => {
 });
 // End of side bar buttons ^
 
-//Start of reinder page functions
+//Start of reminder page functions
 
 window.addEventListener('load', () => {
     const form = document.querySelector("#new-reminder-form")
     const input = document.querySelector("#new-reminder-input")
+    const description = document.querySelector("#new-reminder-description")
+    const frequency = document.querySelector("#new-reminder-frequency")
     const list_el = document.querySelector("#reminders")
 
     form.addEventListener('submit',(e) => {
         e.preventDefault();
 
         const reminder =input.value;
+        const desc =description.value;
+        const freq =frequency.value;
 
         if(!reminder){
             alert("Please fill out reminder")
@@ -58,13 +62,28 @@ window.addEventListener('load', () => {
 
         reminder_el.appendChild(reminder_content_el);
 
-        const reminder_input_el =document.createElement("input");
-        reminder_input_el.classList.add("text");
-        reminder_input_el.type = "text";
-        reminder_input_el.value = reminder;
-        reminder_input_el.setAttribute("readonly","readonly");
+        const reminder_input_el1 =document.createElement("input");
+        reminder_input_el1.classList.add("habit");
+        reminder_input_el1.type = "text";
+        reminder_input_el1.value = ("Habit:"+ " " + reminder);
+        reminder_input_el1.setAttribute("readonly","readonly");
 
-        reminder_content_el.appendChild(reminder_input_el);
+        const reminder_input_el2 =document.createElement("input");
+        reminder_input_el2.classList.add("description");
+        reminder_input_el2.type = "text";
+        reminder_input_el2.value = ("Description:"+ " " + desc);
+        reminder_input_el2.setAttribute("readonly","readonly");
+
+        const reminder_input_el3 =document.createElement("input");
+        reminder_input_el3.classList.add("description");
+        reminder_input_el3.type = "text";
+        reminder_input_el3.value = ("Frequency:"+ " " + freq);
+        reminder_input_el3.setAttribute("readonly","readonly");
+
+
+        reminder_content_el.appendChild(reminder_input_el1);
+        reminder_content_el.appendChild(reminder_input_el2);
+        reminder_content_el.appendChild(reminder_input_el3);
 
         const reminder_actions_el = document.createElement("div");
         reminder_actions_el.classList.add("rem-actions");
@@ -85,14 +104,22 @@ window.addEventListener('load', () => {
         list_el.appendChild(reminder_el);
 
         input.value = " ";
+        desc.value = " ";
+        freq.value = " ";
 
         reminder_edit_el.addEventListener('click', () => {
           if(reminder_edit_el.innerText.toLowerCase() == "edit"){  
-            reminder_input_el.removeAttribute("readonly");
-            reminder_input_el.focus();
+            reminder_input_el1.removeAttribute("readonly");
+            reminder_input_el2.removeAttribute("readonly");
+            reminder_input_el3.removeAttribute("readonly");
+            reminder_input_el1.focus();
+            reminder_input_el2.focus();
+            reminder_input_el3.focus();
             reminder_edit_el.innerText = "Save";
           }else{
-              reminder_input_el.setAttribute("readonly","readonly");
+              reminder_input_el1.setAttribute("readonly","readonly");
+              reminder_input_el2.setAttribute("readonly","readonly");
+              reminder_input_el3.setAttribute("readonly","readonly");
               reminder_edit_el.innerText = "Edit";
           };
         });
@@ -100,14 +127,6 @@ window.addEventListener('load', () => {
         reminder_delete_el.addEventListener('click', () => {
             list_el.removeChild(reminder_el);
         });
-
-
-        
-     
-
-
-
-
 
 
     })
