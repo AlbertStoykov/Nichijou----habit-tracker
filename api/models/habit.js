@@ -1,13 +1,19 @@
-const db = require("../dbConfig/init");
+const db = require('../dbConfig/init');
 
 const User = require("./User");
 
-module.exports = class Habit {
-  constructor(data, habit) {
-    this.id = data.id;
-    this.habit_name = data.habit_name;
-    this.habit_category = data.habit_category;
-  }
+
+module.exports = class Habit { 
+    constructor(data, habit) {
+      //From Albert branch
+      this.id = data.id;
+      this.habit_name = data.habit_name;
+      this.habit_category = data.habit_category;
+      
+      // From Amarachi branch
+      this.body = data.body
+      this.username = data.username
+    }
 
   static get all() {
     return new Promise(async (resolve, reject) => {
@@ -20,6 +26,7 @@ module.exports = class Habit {
       }
     });
   }
+
 
   static findById(id) {
     return new Promise(async (resolve, reject) => {

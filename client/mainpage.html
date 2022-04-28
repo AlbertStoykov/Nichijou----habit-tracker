@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/mainpage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+        href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Nichijou</title>
+</head>
+
+<body>
+
+    <!-- start of sidebar -->
+    <div class="sideBar">
+        <div class="sideBarOption active">
+            <span class="material-symbols-outlined">
+                today
+            </span>
+            <button class="sideBarButton" id="todayB">
+                <h2>Today</h2>
+            </button>
+        </div>
+        <div class="sideBarOption ">
+            <span class="material-symbols-outlined">
+                calendar_month
+            </span>
+            <button class="sideBarButton" id="calenderB">
+                <h2>Calender</h2>
+            </button>
+        </div>
+        <div class="sideBarOption  ">
+            <span class="material-symbols-outlined">
+                event_upcoming
+            </span>
+            <button class="sideBarButton" id="reminderB">
+                <h2>Reminder</h2>
+            </button>
+        </div>
+        <div class="sideBarOption ">
+            <span class="material-symbols-outlined">
+                favorite
+            </span>
+            <button class="sideBarButton" id="healthB">
+                <h2>Health</h2>
+            </button>
+        </div>
+        <div class="sideBarOption ">
+            <span class="material-symbols-outlined">
+                brush
+            </span>
+            <button class="sideBarButton" id="hobbiesB">
+                <h2>Hobbies</h2>
+            </button>
+        </div>
+        <div class="sideBarOption ">
+            <span class="material-symbols-outlined">
+                settings
+            </span>
+            <button class="sideBarButton" id="settingsB">
+                <h2>Settings</h2>
+            </button>
+        </div>
+
+    </div>
+    <!-- end of sidebar -->
+    <!-- start of TODAY content -->
+    <div id="today-content">
+        <div class="content">
+            <div class="content_header">
+                <h2>Today</h2>
+            </div>
+
+            <div class="card-body">
+                <h4 class="card-title">Reminders</h4>
+                <ul>
+                    <li>Task 1</li>
+                    <li>Task 1</li>
+                    <li>Task 1</li>
+                </ul>
+                <a href="#" class="card-link">Add +</a>
+            </div>
+            <br>
+            <div class="card-body">
+                <h4 class="card-title">Reminders</h4>
+                <ul>
+                    <li>Task 1</li>
+                    <li>Task 1</li>
+                    <li>Task 1</li>
+                </ul>
+                <a href="#" class="card-link">Add +</a>
+            </div>
+            <br>
+            <div class="card-body">
+                <h4 class="card-title">Reminders</h4>
+                <ul>
+                    <li>Task 1</li>
+                    <li>Task 1</li>
+                    <li>Task 1</li>
+                </ul>
+                <a href="#" class="card-link">Add +</a>
+            </div>
+        </div>
+    </div>
+    <!-- End of TODAY content -->
+    <!-- start of Calender content -->
+    <div id="calender-content">
+        <div class="content">
+            <div class="content_header">
+                <h2>Calender</h2>
+            </div>
+
+            <div class="card-body">
+                <h4 class="card-title">Reminders</h4>
+                <ul>
+                    <li>Task 1</li>
+                    <li>Task 1</li>
+                    <li>Task 1</li>
+                </ul>
+                <a href="#" class="card-link">Add +</a>
+            </div>
+            <br>
+            <div class="card-body">
+                <h4 class="card-title">Reminders</h4>
+                <ul>
+                    <li>Task 1</li>
+                    <li>Task 1</li>
+                    <li>Task 1</li>
+                </ul>
+                <a href="#" class="card-link">Add +</a>
+            </div>
+            <br>
+            <div class="card-body">
+                <h4 class="card-title">Reminders</h4>
+                <ul>
+                    <li>Task 1</li>
+                    <li>Task 1</li>
+                    <li>Task 1</li>
+                </ul>
+                <a href="#" class="card-link">Add +</a>
+            </div>
+        </div>
+
+    </div>
+    <!-- End of Calender content -->
+    <!-- start of reminder content -->
+    <div id="reminder-content">
+        <h1>Reminders</h1>
+        <form id="new-reminder-form">
+            <input type="text" id="new-reminder-input" placeholder="Enter new reminder">
+            <input type="submit" id="new-reminder-submit" value="add reminder">
+        </form>
+        <div class="remMain">
+            <section class="reminder-list">
+                <h2>Reminders</h2>
+
+                <div id="reminders">
+                    <!-- <div class="reminder">
+                        <div class="rem-content">
+                            <input type="text" class="text" value="my shiny reminder" readonly>
+                        </div>
+                        <div class="rem-actions">
+                            <button class="edit">Edit</button>
+                            <button class="delete">Delete</button>
+                        </div>
+                    </div> -->
+                </div>
+            </section>
+        </div>
+    </div>
+    <!-- End of remminder content -->
+    <!-- start of health content -->
+    <div id="health-content">
+
+    </div>
+    <!-- End of health content -->
+
+
+    <!-- start of hobbies content -->
+    <div id="hobbies-content">
+
+    </div>
+    <!-- End of hobbies content -->
+
+
+    <script defer src="static/mainppagefunc.js"></script>
+</body>
+
+</html>

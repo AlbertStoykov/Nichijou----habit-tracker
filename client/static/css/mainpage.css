@@ -1,0 +1,242 @@
+/* body modifications */
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body {
+    --darker-Blue:#034078;
+    --medium-Blue:#1282A2;
+    --off-White:#FEFCFB;
+}
+
+body{
+    display: flex;
+    height: 100vh;
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 10px;
+}
+
+/* side bar modifications */
+
+.sideBarOption {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.sideBarOption .material-symbols-outlined{
+    padding: 20px;
+}
+
+.sideBarOption h2 {
+    font-weight: 800;
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+.sideBarOption:hover {
+    background-color: var(--medium-Blue);
+    border-radius: 30px;
+    color: var(--off-White)!important;
+    max-width: 200px;
+    
+}
+
+.sideBarOption.active {
+    color:var(--medium-Blue);
+
+}
+
+.sideBar{
+    border-right: 1px solid var(--medium-Blue)!important;
+    flex: 0.2;
+    min-width: 250px;
+    margin-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* today page cards */
+.card-body{
+    border: 1px solid var(--darker-Blue);
+    border-radius: 10px;
+    width: 500px;
+    align-items: center;
+    background-color: var(--medium-Blue);
+    margin-left: 350px;
+    margin-bottom: 50px;
+}
+
+.card-body .card-title{
+    color: var(--off-White);
+}
+
+.card-body ul{
+    padding-left: 150px ;
+    color: var(--off-White);
+}
+
+.card-body li{
+    color: var(--off-White)!important;
+}
+
+/* media query to make page responsive */
+
+@media only screen and (max-width: 992px){
+
+    body{
+        flex-direction: column;
+    }
+
+    .sideBar{
+        height: 150px;
+    }    
+};
+
+/* reminder page content */
+
+#reminder-content{
+    box-sizing: border-box;
+    margin: 0;
+    font-family: sans-serif, Arial, Helvetica;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--off-White);
+    color:black;     
+}
+
+#reminder-content h1{
+    padding: 2rem 1rem;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--darker-Blue);
+    margin-bottom: 1rem;
+}
+
+#new-reminder-form{
+    display: flex;
+}
+
+
+input, button {
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+#new-reminder-input{
+    flex: 1 1 0%;
+    background-color: var(--medium-Blue);
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-right: 1rem;
+    color: var(--off-White);
+    font-size: 1.2rem;
+}
+
+#new-reminder-input::placeholder {
+    color: var(--off-White);
+}
+#new-reminder-submit{
+    color: var(--darker-Blue);
+    font-size: 1.25rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+#new-reminder-submit:hover{
+    opacity: 0.8;
+}
+
+#new-reminder-submit:active{
+    opacity:0.6;
+}
+
+.remMain{
+    flex: 1 1 0%;
+    max-width: 800px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.reminder-list{
+    padding: 1rem;
+}
+
+.reminder-list h2{
+    font-size: 1.5rem;
+	font-weight: 400;
+	color: var(--darker-Blue);
+	margin-bottom: 1rem;
+}
+
+#reminders .reminder .rem-content {
+   flex: 1 1 0%; 
+}
+
+#reminders .reminder{
+    display: flex;
+	justify-content: space-between;
+	background-color: var(--medium-Blue);
+	padding: 1rem;
+	border-radius: 1rem;
+	margin-bottom: 1rem;
+}
+
+#reminders .reminder .rem-content .text{
+    color: var(--off-White);
+    font-size: 1.2rem;
+    width: 100%;
+    display: block;
+    transition: 0.4s;
+}
+
+#reminders .reminder .rem-content .text:not(:read-only){
+    color: var(--darker-Blue);
+}
+
+#reminders .reminder .rem-actions{
+    display:flex;
+    margin:0 -0.5rem;
+}
+
+.reminder .rem-actions button{
+    cursor: pointer;
+	margin: 0 0.5rem;
+	font-size: 1.125rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	transition: 0.4s;
+}
+
+.reminder .rem-actions button:hover{
+    opacity: 0.8;
+}
+
+.reminder .rem-actions button:active{
+    opacity:0.6;
+}
+.reminder .rem-actions .edit{
+color: var(--off-White);    
+}
+
+.reminder .rem-actions .delete{
+    color: red;    
+}
+
+
+
+
+
+
