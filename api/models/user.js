@@ -28,15 +28,15 @@ module.exports = class User {
     });
   }
 
-  static create({ username, email, password }) {
+  static create({ first_name,last_name,username, email,password }) {
     // create an username,email and password which represents each time a user registers
     // a new username,email and password is created
     return new Promise(async (res, rej) => {
       try {
         // wait for the request of adding(insert) a new,email and encrypted password to to the pg db
         let result =
-          await db.query(`INSERT INTO users (username, email, password_digest)
-                                                VALUES (${username}, ${email}, ${password}) RETURNING *;`);
+          await db.query(`INSERT INTO users (first_name,last_name,username, email, password_digest)
+                                                VALUES (${first_name},${last_name},${username}, ${email}, ${password}) RETURNING *;`);
         let user = new User(result.rows[0]);
         res(user);
       } catch (err) {
@@ -66,7 +66,7 @@ module.exports = class User {
     return new Promise(async (resolve, reject) => {
       try {
         const result = await db.query(
-          `SELECT id, habit_name, habit_category FROM habits WHERE id = $1;`,
+          `SELECT id, habit_name, habit_category FROM recurring_habits WHERE id = $1;`,
           [this.id]
         );
         const habits = result.rows.map((b) => ({
@@ -85,7 +85,7 @@ module.exports = class User {
     return new Promise(async (resolve, reject) => {
       try {
         const result = await db.query(
-          `DELETE FROM users WHERE username = $1 RETURNING username;`,
+          `DELETE * FROM users WHERE username = $1 RETURNING username;`,
           [this.username]
         );
         resolve(`User ${result.username} was deleted`);
