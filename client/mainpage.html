@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="static/css/mainpage.css">
+    <link rel="stylesheet" href="trials.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -155,19 +155,25 @@
     <!-- End of Calender content -->
     <!-- start of reminder content -->
     <div id="reminder-content">
-        <h1>Reminders</h1>
+        <h1>Habits</h1>
         <form id="new-reminder-form">
-            <input type="text" id="new-reminder-input" placeholder="Enter new reminder">
+            <!-- new -->
+            <input type="text" id="new-reminder-input" placeholder="Enter new habit">
+            <input type="text" id="new-reminder-description" placeholder="Enter habit description">
+            <input type="text" id="new-reminder-frequency" placeholder="Enter habit frequency">
+            <!-- new end -->
             <input type="submit" id="new-reminder-submit" value="add reminder">
         </form>
         <div class="remMain">
             <section class="reminder-list">
-                <h2>Reminders</h2>
+                <h2>Your current habits:</h2>
 
                 <div id="reminders">
                     <!-- <div class="reminder">
                         <div class="rem-content">
-                            <input type="text" class="text" value="my shiny reminder" readonly>
+                            <input type="text" class="habit" value="habit" readonly>
+                            <input type="text" class="description" value="description" readonly>
+                            <input type="text" class="frequency" value="frequency" readonly>
                         </div>
                         <div class="rem-actions">
                             <button class="edit">Edit</button>
@@ -178,7 +184,7 @@
             </section>
         </div>
     </div>
-    <!-- End of remminder content -->
+    <!-- End of reminder content -->
     <!-- start of health content -->
     <div id="health-content">
 
@@ -193,7 +199,7 @@
     <!-- End of hobbies content -->
 
 
-    <script defer src="static/mainppagefunc.js"></script>
+    <script defer src="trial.js"></script>
 </body>
 
 </html>
