@@ -39,7 +39,6 @@ module.exports = class Habit {
     return new Promise(async (resolve, reject) => {
       try {
         const { habit_name, habit_category } = habitData;
-        let user = await User.findOrCreateByName(habit_name);
         let result = await db.query(
           `INSERT INTO habits (habit_name, habit_category)
                                             VALUES ($1, $2)

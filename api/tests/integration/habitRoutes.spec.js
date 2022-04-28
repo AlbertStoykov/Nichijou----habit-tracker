@@ -23,8 +23,8 @@ describe("habits endpoints", () => {
 
   it("should create a new habit", async () => {
     const res = await request(api).post("/habits").send({
-      title: "New Book",
-      authorName: "Test Author 1",
+      habit_name: "Habit Test Name",
+      habit_category: "Test Habit Cat",
     });
     expect(res.statusCode).toEqual(201);
     expect(res.body).toHaveProperty("id");
