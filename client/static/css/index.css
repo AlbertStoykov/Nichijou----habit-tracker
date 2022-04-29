@@ -1,0 +1,378 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+body {
+    background-color: #fefcfb;
+}
+
+/*master container*/
+.master-container {
+    position: relative;
+    width: auto;
+    background-color: #fefcfb;
+    ;
+}
+
+/*the main container*/
+.landing-main {
+    background-image: url("../img/background-blur.png");
+    background-position: right;
+    background-size: cover;
+    position: relative;
+    min-height: 800px;
+}
+
+.nav-landing {
+    position: relative;
+    float: right;
+    margin: 20px;
+}
+
+.log-btn {
+    background-color: #1282a2;
+    border: none;
+    color: #fefcfb;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 3px;
+    padding: 10px;
+}
+
+.landLogo {
+    position: absolute;
+    width: calc(100px + 7vw);
+    padding: 20px;
+}
+
+.emptyFill {
+    min-height: 250px;
+    max-height: 300px;
+}
+
+.mainText {
+    max-width: 700px;
+    margin: auto;
+}
+
+.mainText h1,
+h4 {
+    font-family: Josefin Sans;
+    text-align: center;
+    text-shadow: 0px 0px 3px aliceblue;
+}
+
+.btnCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+}
+
+.join-btn {
+    background-color: #1282a2;
+    border: none;
+    color: #fefcfb;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 4px;
+    padding: 15px;
+    margin: auto;
+}
+
+/*product description section*/
+.product-description {
+    min-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.block-left {
+    display: inline-block;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.block-right {
+    display: inline-block;
+    text-align: justify;
+    max-width: 700px;
+    margin: 15px;
+}
+
+.descLogo {
+    width: calc(250px + 2vw);
+    padding: 20px;
+}
+
+.descriptionText {
+    font-family: Josefin Sans;
+    font-size: 18px;
+}
+
+/*media queries for product description*/
+
+@media only screen and (max-width: 1000px) {
+    .product-description {
+        min-height: 400px;
+        justify-content: center;
+        align-items: center;
+        display: contents;
+    }
+
+    .block-left {
+        display: block;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    .block-right {
+        display: block;
+        text-align: justify;
+        margin: auto;
+        padding: 4px;
+    }
+
+    .descLogo {
+        width: calc(170px + 2vw);
+        padding: 20px;
+        display: block;
+        margin: auto;
+    }
+
+    .descriptionText {
+        font-family: Josefin Sans;
+        font-size: 15px;
+    }
+}
+
+
+/**/
+.product-display-1 {
+    min-height: 600px;
+    background-color: #034078;
+}
+
+
+/**/
+.product-display-2 {
+    min-height: 450px;
+}
+
+
+/*last section asking users to join*/
+.last-ask {
+    min-height: 400px;
+    max-height: 420px;
+    background-color: #034078;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../img/nichijou-logo-white-op40-blur4.png);
+    background-repeat: no-repeat;
+    background-size: 390px;
+    background-position: 10%;
+}
+
+.last-ask h1 {
+    text-align: center;
+    font-family: Josefin Sans;
+    color: #fefcfb;
+}
+
+.emptyFill2 {
+    min-height: 150px;
+    max-height: 200px;
+}
+
+/*developer team introduction*/
+.dev-team {
+    min-height: 520px;
+}
+
+.dev-team h1 {
+    text-align: center;
+    font-family: Josefin Sans;
+    padding-top: 40px;
+    padding-bottom: 30px;
+}
+
+.devBox {
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
+
+.devBox h3 {
+    padding: 15px;
+    text-align: center;
+}
+
+.devBox a {
+    color: #034078;
+    text-decoration: none;
+}
+
+.devPic {
+    background-color: #034078;
+    width: 250px;
+    height: 250px;
+    display: block;
+    margin: auto;
+    border-radius: 250px;
+    border: none;
+}
+
+/*modifying elements inside the footer*/
+footer {
+    min-height: 500px;
+    background-color: #034078;
+    color: #fefcfb;
+    font-family: Josefin Sans;
+}
+
+.emptyFill3 {
+    height: 10px;
+}
+
+.logoFooter {
+    width: 125px;
+    margin-bottom: 25px;
+}
+
+.mainFooter {
+    min-width: 300px;
+}
+
+footer a {
+    text-decoration: none;
+    color: #fefcfb;
+}
+
+.infoot {
+    position: relative;
+    min-height: 100px;
+}
+
+.inabs {
+    position: absolute;
+    bottom: 20px;
+}
+
+.techUsed {
+    min-width: 250px;
+}
+
+.not-button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    color: #fefcfb;
+}
+
+/*describing the modal*/
+
+.modalWhole {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    transition: 200ms ease-in-out;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: #034078;
+    width: 500px;
+    max-width: 80%;
+}
+
+.modalHeader {
+    padding: 9px 20px;
+    position: relative;
+}
+
+.modalHeader .close-button {
+    position: absolute;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+    right: 15px;
+    text-decoration: none;
+    color: white;
+}
+
+.modalCenterLogo {
+    justify-content: center;
+    align-items: center;
+}
+
+.logomodal {
+    display: block;
+    width: 120px;
+    height: 120px;
+    margin: auto;
+}
+
+.modalForm {
+    width: 80%;
+    display: block;
+    padding-top: 30px;
+    padding-bottom: 5px;
+    margin: auto;
+}
+
+.modalForm .row {
+    margin: 6px;
+}
+
+.labelForm {
+    float: right;
+    color: #fefcfb;
+}
+
+.modalFormBox {
+    border-radius: 5px;
+    border: none;
+}
+
+.register-btn {
+    padding: 20px;
+    position: relative;
+}
+
+.modal-btn {
+    background-color: #1282a2;
+    border: none;
+    color: #fefcfb;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 3px;
+    padding: 7px 13px 9px 13px;
+    display: block;
+    margin: auto;
+    align-content: center;
+}
+
+.alternativeSign {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    display: block;
+    margin: auto;
+    padding-top: 30px;
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+.alternativeSign a {
+    color: #fefcfb;
+}
+
+#bgRandom {
+    height: 100vh;
+    background-color: #1282a2;
+}
