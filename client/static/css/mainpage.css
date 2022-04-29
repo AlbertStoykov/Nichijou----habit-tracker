@@ -124,6 +124,7 @@ body{
 
 #new-reminder-form{
     display: flex;
+    padding: 10px;
 }
 
 
@@ -147,6 +148,38 @@ input, button {
 #new-reminder-input::placeholder {
     color: var(--off-White);
 }
+
+/* new */
+
+#new-reminder-description{
+    flex: 1 1 0%;
+    background-color: var(--medium-Blue);
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-right: 1rem;
+    color: var(--off-White);
+    font-size: 1.2rem;
+}
+
+#new-reminder-description::placeholder {
+    color: var(--off-White);
+}
+
+#new-reminder-frequency{
+    flex: 1 1 0%;
+    background-color: var(--medium-Blue);
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-right: 1rem;
+    color: var(--off-White);
+    font-size: 1.2rem;
+}
+
+#new-reminder-frequency::placeholder {
+    color: var(--off-White);
+}
+/* new end */
+
 #new-reminder-submit{
     color: var(--darker-Blue);
     font-size: 1.25rem;
@@ -194,7 +227,9 @@ input, button {
 	margin-bottom: 1rem;
 }
 
-#reminders .reminder .rem-content .text{
+/* new */
+
+#reminders .reminder .rem-content .habit{
     color: var(--off-White);
     font-size: 1.2rem;
     width: 100%;
@@ -202,9 +237,35 @@ input, button {
     transition: 0.4s;
 }
 
-#reminders .reminder .rem-content .text:not(:read-only){
+#reminders .reminder .rem-content .habit:not(:read-only){
     color: var(--darker-Blue);
 }
+
+#reminders .reminder .rem-content .description{
+    color: var(--off-White);
+    font-size: 1.2rem;
+    width: 100%;
+    display: block;
+    transition: 0.4s;
+}
+
+#reminders .reminder .rem-content .description:not(:read-only){
+    color: var(--darker-Blue);
+}
+
+#reminders .reminder .rem-content .frequency{
+    color: var(--off-White);
+    font-size: 1.2rem;
+    width: 100%;
+    display: block;
+    transition: 0.4s;
+}
+
+#reminders .reminder .rem-content .frequency:not(:read-only){
+    color: var(--darker-Blue);
+}
+
+/* new end */
 
 #reminders .reminder .rem-actions{
     display:flex;
@@ -234,9 +295,3 @@ color: var(--off-White);
 .reminder .rem-actions .delete{
     color: red;    
 }
-
-
-
-
-
-

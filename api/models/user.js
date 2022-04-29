@@ -7,7 +7,7 @@ module.exports = class User {
     // it wants data on the username,email and the salted and then hashed(encrypted) password
     this.username = data.username;
     this.email = data.email;
-    this.passwordDigest = data.password_digest;
+    this.password = data.user_password;
   }
 
   static get all() {
@@ -28,15 +28,15 @@ module.exports = class User {
     });
   }
 
-  static create({ username, email, password }) {
+  static create({ first_name,last_name,username, email,password }) {
     // create an username,email and password which represents each time a user registers
     // a new username,email and password is created
     return new Promise(async (res, rej) => {
       try {
         // wait for the request of adding(insert) a new,email and encrypted password to to the pg db
         let result =
-          await db.query(`INSERT INTO users (username, email, password_digest)
-                                                VALUES (${username}, ${email}, ${password}) RETURNING *;`);
+          await db.query(`INSERT INTO users (first_name,last_name,username, email, password_digest)
+                                                VALUES (${first_name},${last_name},${username}, ${email}, ${password}) RETURNING *;`);
         let user = new User(result.rows[0]);
         res(user);
       } catch (err) {
@@ -52,7 +52,7 @@ module.exports = class User {
         // wait to check if the email inputted for reset corresponds to any of the emails
         // in the email attribute in the user table in the pg db
         let result = await db.query(`SELECT * FROM users
-                                                WHERE email = ${email};`);
+                                                WHERE email = $1;`, [email]);
         let user = new User(result.rows[0]);
         res(user); // if it does response
       } catch (err) {
@@ -66,12 +66,15 @@ module.exports = class User {
     return new Promise(async (resolve, reject) => {
       try {
         const result = await db.query(
-          `SELECT id, habit_name, habit_category FROM habits WHERE id = $1;`,
+          `SELECT *
+          FROM recurring_habits
+          WHERE recurring_habits.id = $1;`,
           [this.id]
         );
         const habits = result.rows.map((b) => ({
           category: b.habit_category,
           habit: b.habit_name,
+          path: `/habits/${b.id}`,
         }));
         resolve(habits);
       } catch (err) {
@@ -84,7 +87,7 @@ module.exports = class User {
     return new Promise(async (resolve, reject) => {
       try {
         const result = await db.query(
-          `DELETE FROM users WHERE username = $1 RETURNING username;`,
+          `DELETE * FROM users WHERE username = $1 RETURNING username;`,
           [this.username]
         );
         resolve(`User ${result.username} was deleted`);
@@ -104,6 +107,41 @@ module.exports = class User {
         resolve(user);
       } catch (err) {
         reject("User not found");
+      }
+    });
+  }
+
+  static create(id, first_name, last_name, username, user_password, email) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        let userData = await db.query(
+          `INSERT INTO users (id, first_name, last_name, username, user_password, email) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;`,
+          [id, first_name, last_name, username, user_password, email]
+        );
+        let user = new User(userData.rows[0]);
+        resolve(user);
+      } catch (err) {
+        reject("User could not be created");
+      }
+    });
+  }
+
+  static findOrCreateByName(name) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        let user;
+        const userData = await db.query(
+          `SELECT * FROM users WHERE first_name = $1;`,
+          [first_name]
+        );
+        if (!userData.rows.length) {
+          // user = await User.create(name);
+        } else {
+          user = new User(userData.rows[0]);
+        }
+        resolve(user);
+      } catch (err) {
+        reject(err);
       }
     });
   }
