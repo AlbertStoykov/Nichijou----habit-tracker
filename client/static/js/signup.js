@@ -49,3 +49,4 @@ function currentUser(){
 }
 
 document.getElementById("logIn").addEventListener("submit", requestLogin);
+document.getElementById("SignUp").addEventListener("submit", requestRegistration);
