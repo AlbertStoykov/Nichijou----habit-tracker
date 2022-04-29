@@ -212,6 +212,7 @@ input, button {
 	font-weight: 400;
 	color: var(--darker-Blue);
 	margin-bottom: 1rem;
+    padding-left: 300px;
 }
 
 #reminders .reminder .rem-content {
