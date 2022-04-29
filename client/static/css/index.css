@@ -361,7 +361,7 @@ footer a {
     border: none;
     outline: none;
     background: none;
-    color: #fefcfb;
+    color: #fefcfb !important;
     display: block;
     margin: auto;
     padding-top: 30px;
