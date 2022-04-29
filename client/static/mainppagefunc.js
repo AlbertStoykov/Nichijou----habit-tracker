@@ -7,9 +7,9 @@ const calDiv = document.querySelector('#calender-content')
 const toDiv = document.querySelector('#today-content')
 const remDiv = document.querySelector('#reminder-content')
 
-toDiv.style.display = 'block';
+toDiv.style.display = 'none';
 calDiv.style.display = 'none';
-remDiv.style.display = 'none';
+remDiv.style.display = 'block';
 
 todayBttn.addEventListener('click', () => {
     toDiv.style.display = 'block';
