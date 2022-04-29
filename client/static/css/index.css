@@ -361,12 +361,15 @@ footer a {
     border: none;
     outline: none;
     background: none;
-    color: #fefcfb !important;
     display: block;
     margin: auto;
     padding-top: 30px;
     text-decoration: underline;
     font-size: 14px;
+}
+
+.alternativeSign a {
+    color: #fefcfb;
 }
 
 #bgRandom {
